@@ -97,6 +97,39 @@
           }
         }
       }
+    },
+    "blink-ui": {
+      "projectType": "library",
+      "root": "projects/blink-ui",
+      "sourceRoot": "projects/blink-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/blink-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/blink-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/blink-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/blink-ui/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
